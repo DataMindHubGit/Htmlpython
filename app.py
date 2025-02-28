@@ -13,18 +13,34 @@ def generate_html_with_code(user_code):
     <!-- Include Prism.js for Python -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     
-    <!-- Custom CSS to modify the background color to dark blue -->
+    <!-- Custom CSS to modify the background color to #102e76 and center the code block -->
     <style>
+        /* Centering the code block */
+        .code-container {{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }}
+
+        /* Styling the code block */
         pre[class*="language-"] {{
-            background-color: #001f3d !important; /* Dark blue background */
+            background-color: #102e76 !important; /* Dark blue background */
             color: #f0f0f0; /* Light text color for readability */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+            width: fit-content;
+            max-width: 80%;
         }}
     </style>
     
     <!-- Your Python code block with syntax highlighting -->
-    <pre><code class="language-python">
+    <div class="code-container">
+        <pre><code class="language-python">
 {user_code}
-    </code></pre>
+        </code></pre>
+    </div>
     """
     return html_code
 
